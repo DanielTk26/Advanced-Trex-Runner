@@ -51,7 +51,7 @@ function setup() {
   trex.addAnimation("collided", trex_collided);
   trex.setCollider('circle',0,0,350)
   trex.scale = 0.08
-  // trex.debug=true
+
   
   invisibleGround = createSprite(width/2,height-10,width,125);  
   invisibleGround.shapeColor = "#f4cbaa";
@@ -59,7 +59,7 @@ function setup() {
   ground = createSprite(width/2,height,width,2);
   ground.addImage("ground",groundImage);
   ground.x = width/2
-  ground.velocityX = -(6 + 3*score/100);
+  ground.velocityX = -(6 + 50*score/100);
   
   gameOver = createSprite(width/2,height/2- 50);
   gameOver.addImage(gameOverImg);
@@ -92,7 +92,7 @@ function draw() {
   
   if (gameState===PLAY){
     score = score + Math.round(getFrameRate()/60);
-    ground.velocityX = -(6 + 3*score/100);
+    ground.velocityX = -(6 + 50*score/100);
     
     if((touches.length > 0 || keyDown("SPACE")) && trex.y  >= height-120) {
       jumpSound.play( )
@@ -149,7 +149,7 @@ function spawnClouds() {
     cloud.y = Math.round(random(100,220));
     cloud.addImage(cloudImage);
     cloud.scale = 0.5;
-    cloud.velocityX = -3;
+    cloud.velocityX = -34;
     
      //assign lifetime to the variable
     cloud.lifetime = 300;
@@ -170,7 +170,7 @@ function spawnObstacles() {
     obstacle.setCollider('circle',0,0,45)
     // obstacle.debug = true
   
-    obstacle.velocityX = -(6 + 3*score/100);
+    obstacle.velocityX = -(6 + 50*score/100);
     
     //generate random obstacles
     var rand = Math.round(random(1,2));
